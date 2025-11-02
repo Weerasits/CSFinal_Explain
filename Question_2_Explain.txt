@@ -1,0 +1,51 @@
+════════════════════════════════════════════════════════════
+Question 2: อธิบาย - Industrial_Furnace System
+Controller: PI | Analysis & Design Method: Bode Plot
+════════════════════════════════════════════════════════════
+
+【 Process Description 】
+
+Heating furnace - zone temperature control
+
+Transfer Function:
+  G(s) = 4.59*exp(-19.46*s)/((34.20*s+1)*(26.29*s+1)*(19.77*s+1)*(4.22*s+1))
+
+MATLAB: tf(4.59, conv(conv(conv([34.20 1],[26.29 1]),[19.77 1]),[4.22 1]), 'InputDelay', 19.46)
+
+Parameters:
+  • K = 4.59 degC per percent fuel
+  • tau1 = 34.20 min
+  • tau2 = 26.29 min
+  • tau3 = 19.77 min
+  • tau4 = 4.22 min
+  • theta = 19.46 min
+
+【 Performance Requirements 】
+
+✓ Settling Time (2% band):  <= 342.0 min
+✓ Overshoot:                 <= 17%
+✓ Phase Margin:              >= 57 deg
+✓ Gain Margin:               >= 14 dB
+
+【 Questions 】
+
+1. Explain Physical Principles (5 points)
+   • Working mechanism of Industrial Furnace
+   • Variables affecting dynamics
+   • Causes of time constants and delay
+
+2. Explain PI Controller Selection (5 points)
+   • Why suitable for this system
+   • Advantages-disadvantages vs other controllers
+   • Effect of each term (P, I, D) on response
+
+3. Explain Analysis using Bode Plot (5 points)
+   • Meaning of Gain and Phase
+   • Reading Stability Margins
+   • Effect of controller on frequency response
+
+4. Write MATLAB Code (5 points)
+   • Create plant and controller
+   • Plot Bode Plot
+   • Analyze and display results
+
